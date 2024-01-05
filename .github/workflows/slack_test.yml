@@ -29,6 +29,8 @@ jobs:
                         ],
                         "attachments": [
                           {
+                            "color": "#36a64f",
+                            "blocks": [
                               {
                                 "type": "section",
                                 "fields": [
@@ -50,6 +52,7 @@ jobs:
                                   }
                                 ]
                               }
+                            ]
                           }
                         ]
                       }
