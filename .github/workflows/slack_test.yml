@@ -1,4 +1,4 @@
-name: Slack Notification
+name: Slack Test
 
 on:
     push:
@@ -13,14 +13,16 @@ jobs:
               run: exit 1
 
             - name: If Actions Failure
+              if: ${{failure()}}
               run: echo "ACTIONS_STATUS=Failure" >> $GITHUB_ENV
 
             - name: If Actions Success
+              if: ${{success()}}
               run: echo "ACTIONS_STATUS=Success" >> $GITHUB_ENV
 
             - name: Send Slack Message
               if: ${{always()}}
-              uses: ./github/actions/slack_notify
+              uses: ./github/actions/slack-notify
               with:
                   status: ${{env.ACTIONS_STATUS}}
                   slack_webhook_url: ${{secrets.SLACK_WEBHOOK_URL}}

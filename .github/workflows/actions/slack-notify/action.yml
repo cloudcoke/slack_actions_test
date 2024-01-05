@@ -1,4 +1,4 @@
-name: "slack_notify"
+name: "slack-notify"
 
 inputs:
     status:
