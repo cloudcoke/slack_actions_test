@@ -9,7 +9,8 @@ jobs:
         runs-on: ubuntu-22.04
         steps:
             - name: Set Variables
-              run: echo "SHORT_GITHUB_SHA=${GITHUB_SHA::6}" >> "$GITHUB_ENV"
+              id: vars
+              run: echo "SHORT_GITHUB_SHA=${GITHUB_SHA::6}" >> "$GITHUB_OUTPUT"
 
             - name: Send custom JSON data to Slack workflow
               id: slack
@@ -58,4 +59,4 @@ jobs:
               env:
                   SLACK_WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL}}
                   SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
-                  SHORT_GITHUB_SHA: ${{github.env.SHORT_GITHUB_SHA}}
+                  SHORT_GITHUB_SHA: ${{steps.vars.outputs.SHORT_GITHUB_SHA}}
