@@ -14,14 +14,33 @@ jobs:
               with:
                   payload: |
                       {
-                        "text": "Github Action build result: ${{job.status}}",
+                        "text": "${{github.action_repository}} actions result: ${{job.status}}"
                         "blocks": [
                           {
                             "type": "section",
                             "text": {
                               "type": "mrkdwn",
-                              "text": "Result: ${{job.status}}\n${{github.event.pull_request.html_url || github.event.head_commit.url}}"
+                              "text": "Actions Result : ${{job.status}}"
                             }
+                          }
+                        ],
+                        "attachments": [
+                          {
+                            "blocks": [
+                              {
+                                "type": "section",
+                                "fields": [
+                                  {
+                                    "type": "mrkdwn",
+                                    "text": "*Repository:*\n${{github.action_repository}}"
+                                  },
+                                  {
+                                    "type": "mrkdwn",
+                                    "text": "*Author:*\n${{github.actor}}"
+                                  }
+                                ]
+                              }
+                            ]
                           }
                         ]
                       }
