@@ -40,7 +40,7 @@ jobs:
                                   },
                                   {
                                     "type": "mrkdwn",
-                                    "text": "*Commit:*\n${{github.head_ref}}"
+                                    "text": "*Commit:*\n${{github.event.head_commit}}"
                                   },
                                   {
                                     "type": "mrkdwn",
