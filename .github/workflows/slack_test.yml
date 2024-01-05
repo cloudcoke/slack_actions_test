@@ -17,7 +17,7 @@ jobs:
                         "text": "${{github.action_repository}} actions result: ${{job.status}}",
                         "blocks": [
                           {
-                            "type": "section",
+                            "type": "header",
                             "text": {
                               "type": "mrkdwn",
                               "text": "Actions Result : ${{job.status}}"
