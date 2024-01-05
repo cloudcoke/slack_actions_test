@@ -14,13 +14,13 @@ jobs:
               with:
                   payload: |
                       {
-                        "text": "${{github.action_repository}} actions result: ${{job.status}}",
+                        "text": "${{github.action_repository}} actions result: ${{github.action_status}}",
                         "blocks": [
                           {
                             "type": "section",
                             "text": {
                               "type": "mrkdwn",
-                              "text": "Actions Result : ${{job.status}}"
+                              "text": "Actions Result : ${{github.action_status}}"
                             }
                           }
                         ],
