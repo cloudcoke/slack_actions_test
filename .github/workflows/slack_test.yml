@@ -29,7 +29,6 @@ jobs:
                         ],
                         "attachments": [
                           {
-                            "blocks": [
                               {
                                 "type": "section",
                                 "fields": [
@@ -51,7 +50,6 @@ jobs:
                                   }
                                 ]
                               }
-                            ]
                           }
                         ]
                       }
