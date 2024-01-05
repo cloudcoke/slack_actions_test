@@ -43,7 +43,7 @@ jobs:
                                   },
                                   {
                                     "type": "mrkdwn",
-                                    "text": "*Commit:*\n<${{github.event.head_commit.url}} | ${{github.env.SHORT_GITHUB_SHA}}>"
+                                    "text": "*Commit:*\n<${{github.event.head_commit.url}} | $SHORT_GITHUB_SHA>"
                                   },
                                   {
                                     "type": "mrkdwn",
@@ -58,3 +58,4 @@ jobs:
               env:
                   SLACK_WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL}}
                   SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+                  SHORT_GITHUB_SHA: ${{github.env.SHORT_GITHUB_SHA}}
