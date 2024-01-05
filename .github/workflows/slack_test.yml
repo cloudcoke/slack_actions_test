@@ -20,7 +20,7 @@ jobs:
 
             - name: Send Slack Message
               if: ${{always()}}
-              uses: ./github/slack/slack_notify
+              uses: ./github/actions/slack_notify
               with:
                   status: ${{env.ACTIONS_STATUS}}
                   slack_webhook_url: ${{secrets.SLACK_WEBHOOK_URL}}
