@@ -14,7 +14,7 @@ jobs:
               with:
                   payload: |
                       {
-                        "text": "${{github.action_repository}} actions result: ${{job.status}}"
+                        "text": "${{github.action_repository}} actions result: ${{job.status}}",
                         "blocks": [
                           {
                             "type": "section",
