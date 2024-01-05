@@ -50,8 +50,7 @@ jobs:
                                     "type": "mrkdwn",
                                     "text": "*Commit Message:*\n${{github.event.head_commit.message}}"
                                   }
-                                ],
-                                "thumb_url": "https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"
+                                ]
                               }
                             ]
                           }
