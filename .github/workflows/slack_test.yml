@@ -43,7 +43,7 @@ jobs:
                                   },
                                   {
                                     "type": "mrkdwn",
-                                    "text": "*Commit:*\n<${{github.event.head_commit.url}} | $SHORT_GITHUB_SHA>"
+                                    "text": "*Commit:*\n<${{github.event.head_commit.url}} | ${{github.env.SHORT_GITHUB_SHA}}>"
                                   },
                                   {
                                     "type": "mrkdwn",
