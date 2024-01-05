@@ -14,13 +14,13 @@ jobs:
               with:
                   payload: |
                       {
-                        "text": "${{github.action_repository}} actions result: ${{github.action_status}}",
+                        "text": "${{github.action_repository}} actions result: ${{job.status}}",
                         "blocks": [
                           {
                             "type": "section",
                             "text": {
                               "type": "mrkdwn",
-                              "text": "Actions Result : ${{github.action_status}}"
+                              "text": "Actions Result : ${{job.status}}"
                             }
                           }
                         ],
@@ -37,6 +37,14 @@ jobs:
                                   {
                                     "type": "mrkdwn",
                                     "text": "*Author:*\n${{github.actor}}"
+                                  },
+                                  {
+                                    "type": "mrkdwn",
+                                    "text": "*Commit:*\n${{github.head_ref}}"
+                                  },
+                                  {
+                                    "type": "mrkdwn",
+                                    "text": "*Commit Message:*\n${{github.event.head_commit.message}}"
                                   }
                                 ]
                               }
