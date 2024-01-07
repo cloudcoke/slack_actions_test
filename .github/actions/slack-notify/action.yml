@@ -8,12 +8,12 @@ inputs:
 
 runs:
     using: "composite"
-    shell: bash
 
     steps:
         - name: Set Variables
           run: |
               echo "SHORT_GITHUB_SHA=${GITHUB_SHA::6}" >> $GITHUB_ENV
+          shell: bash
 
         - name: Send custom JSON data to Slack workflow
           id: slack
