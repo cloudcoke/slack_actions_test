@@ -46,34 +46,21 @@ runs:
                           {
                             "type": "section",
                             "fields": [
-                              {
-                                "type": "mrkdwn",
-                                "text": "*Repository:*\n<${{github.server_url}}/${{github.repository}} | ${{github.repository}}>"
-                              },
-                              {
-                                "type": "mrkdwn",
-                                "text": "*Author:*\n${{github.actor}}"
-                              },
-                              {
-                                "type": "mrkdwn",
-                                "text": "*Commit:*\n<${{github.event.head_commit.url}} | ${{env.SHORT_GITHUB_SHA}}>"
-                              },
-                              {
-                                "type": "mrkdwn",
-                                "text": "*Commit Message:*\n${{github.event.head_commit.message}}"
-                              },
-                              {
-                                "type": "mrkdwn",
-                                "text": "*Run ID*\n<${{github.server_url}}/${{github.repository}}/actions/runs/${{github.run_id}} | ${{github.run_id}}>"
-                              },
-                              {
-                                "type": "mrkdwn",
-                                "text": "*Run Number*\n${{github.run_number}}"
-                              },
-                              {
-                                "type": "mrkdwn",
-                                "text": "*Branch*\n${{github.ref_name}}"
-                              }
+                                {
+                                  "title": "Hello",
+                                  "value": "World",
+                                  "short": true
+                                },
+                                {
+                                  "title": "Short",
+                                  "value": "short",
+                                  "short": true
+                                },
+                                {
+                                  "title": "Long",
+                                  "value": "long",
+                                  "short": false
+                                }
                             ]
                           }
                         ]
