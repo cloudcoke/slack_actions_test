@@ -40,7 +40,7 @@ runs:
                             "fields": [
                               {
                                 "type": "mrkdwn",
-                                "text": "*Repository:*\n${{github.repository}}"
+                                "text": "*Repository:*\n<${{github.server_url}}/${{github.repository}} | ${{github.repository}}>"
                               },
                               {
                                 "type": "mrkdwn",
@@ -56,11 +56,15 @@ runs:
                               },
                               {
                                 "type": "mrkdwn",
+                                "text": "*Run ID*\n<${{github.server_url}}/${{github.repository}}/actions/runs/${{github.run_id}} | ${{github.run_id}}>"
+                              },
+                              {
+                                "type": "mrkdwn",
                                 "text": "*Run Number*\n${{github.run_number}}"
                               },
                               {
                                 "type": "mrkdwn",
-                                "text": "*Run ID*\n<${{github.server_url}}/${{github.repository}}/actions/runs/${{github.run_id}} | ${{github.run_id}}>"
+                                "text": "*Branch*\n${{github.ref_type}}"
                               }
                             ]
                           }
