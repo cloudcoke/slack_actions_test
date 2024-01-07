@@ -13,6 +13,13 @@ runs:
         - name: Set Variables
           run: |
               echo "SHORT_GITHUB_SHA=${GITHUB_SHA::6}" >> $GITHUB_ENV
+              if [ "${{inputs.status}}" = "Success" ]; then
+                ACTIONS_STATUS="✅ Success" >> $GITHUB_ENV
+                COLOR="#36a64f" >> $GITHUB_ENV
+              else
+                ACTIONS_STATUS="⛔ Failure" >> $GITHUB_ENV
+                COLOR="#FF0000" >> $GITHUB_ENV
+              fi
           shell: bash
 
         - name: Send custom JSON data to Slack workflow
@@ -21,19 +28,19 @@ runs:
           with:
               payload: |
                   {
-                    "text": "${{github.repository}} actions result: ${{inputs.status}}",
+                    "text": "${{github.repository}} actions result: ${{env.ACTIONS_STATUS}}",
                     "blocks": [
                       {
                         "type": "header",
                         "text": {
                           "type": "plain_text",
-                          "text": "Actions Result : ${{inputs.status}}"
+                          "text": "Actions Result : ${{env.ACTIONS_STATUS}}"
                         }
                       }
                     ],
                     "attachments": [
                       {
-                        "color": "#36a64f",
+                        "color": "${{env.COLOR}}",
                         "blocks": [
                           {
                             "type": "section",
