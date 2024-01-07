@@ -64,7 +64,7 @@ runs:
                               },
                               {
                                 "type": "mrkdwn",
-                                "text": "*Branch*\n${{github.ref_type}}"
+                                "text": "*Branch*\n${{github.base_ref}}"
                               }
                             ]
                           }
