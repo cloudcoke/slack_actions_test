@@ -53,6 +53,14 @@ runs:
                               {
                                 "type": "mrkdwn",
                                 "text": "*Commit Message:*\n${{github.event.head_commit.message}}"
+                              },
+                              {
+                                "type": "mrkdwn",
+                                "text": "*Run Number*\n${{github.run_number}}"
+                              },
+                              {
+                                "type": "mrkdwn",
+                                "text": "*Run ID*\n<${{github.server_url}}/${{github.repository}}/actions/runs/${{github.run_id}} | ${{github.run_id}}>"
                               }
                             ]
                           }
