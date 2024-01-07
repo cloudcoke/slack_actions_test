@@ -29,44 +29,66 @@ runs:
           with:
               payload: |
                   {
-                    "text": "${{github.repository}} actions result: ${{env.ACTIONS_STATUS}}",
-                    "blocks": [
-                      {
-                        "type": "header",
-                        "text": {
-                          "type": "plain_text",
-                          "text": "Actions Result : ${{env.ACTIONS_STATUS}}"
-                        }
-                      }
-                    ],
-                    "attachments": [
-                      {
-                        "color": "${{env.COLOR}}",
-                        "blocks": [
+                      "text": "${{github.repository}} actions result: ${{env.ACTIONS_STATUS}}",
+                      "blocks": [
                           {
-                            "type": "section",
-                            "fields": [
-                                {
-                                  "title": "Hello",
-                                  "value": "World",
-                                  "short": true
-                                },
-                                {
-                                  "title": "Short",
-                                  "value": "short",
-                                  "short": true
-                                },
-                                {
-                                  "title": "Long",
-                                  "value": "long",
-                                  "short": false
-                                }
-                            ]
+                              "type": "header",
+                              "text": {
+                                  "type": "plain_text",
+                                  "text": "Actions Result : ${{env.ACTIONS_STATUS}}"
+                              }
                           }
-                        ]
-                      }
-                    ]
-                  }
+                      ],
+                      "attachments": [
+                          {
+                              "color": "${{env.COLOR}}",
+                              "blocks": [
+                                  {
+                                      "type": "section",
+                                      "fields": [
+                                          {
+                                              "type": "mrkdwn",
+                                              "text": "*Run ID*\n<${{github.server_url}}/${{github.repository}}/actions/runs/${{github.run_id}} | ${{github.run_id}}>"
+                                          },
+                                          {
+                                              "type": "mrkdwn",
+                                              "text": "*Run Number*\n${{github.run_number}}"
+                                          }
+                                      ]
+                                  },
+                                  {
+                                      "type": "section",
+                                      "fields": [
+                                          {
+                                              "type": "mrkdwn",
+                                              "text": "*Repository:*\n<${{github.server_url}}/${{github.repository}} | ${{github.repository}}>"
+                                          },
+                                          {
+                                              "type": "mrkdwn",
+                                              "text": "*Author:*\n${{github.actor}}"
+                                          },
+                                          {
+                                              "type": "mrkdwn",
+                                              "text": "*Commit:*\n<${{github.event.head_commit.url}} | ${{env.SHORT_GITHUB_SHA}}>"
+                                          },
+                                          {
+                                              "type": "mrkdwn",
+                                              "text": "*Branch*\n${{github.ref_name}}"
+                                          }
+                                      ]
+                                  },
+                                  {
+                                      "type": "section",
+                                      "text": {
+                                          "type": "mrkdwn",
+                                          "text": "*Commit Message:*\n${{github.event.head_commit.message}}"
+                                      }
+                                  }
+                              ]
+                          }
+                      ]
+                    }
+
           env:
               SLACK_WEBHOOK_URL: ${{inputs.slack_webhook_url}}
               SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
