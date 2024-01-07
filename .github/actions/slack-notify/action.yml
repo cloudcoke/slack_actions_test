@@ -13,12 +13,13 @@ runs:
         - name: Set Variables
           run: |
               echo "SHORT_GITHUB_SHA=${GITHUB_SHA::6}" >> $GITHUB_ENV
+
               if [ "${{inputs.status}}" = "Success" ]; then
-                ACTIONS_STATUS="✅ Success" >> $GITHUB_ENV
-                COLOR="#36a64f" >> $GITHUB_ENV
+                echo "ACTIONS_STATUS=✅ Success" >> $GITHUB_ENV
+                echo "COLOR=#36a64f" >> $GITHUB_ENV
               else
-                ACTIONS_STATUS="⛔ Failure" >> $GITHUB_ENV
-                COLOR="#FF0000" >> $GITHUB_ENV
+                echo "ACTIONS_STATUS=⛔ Failure" >> $GITHUB_ENV
+                echo "COLOR=#FF0000" >> $GITHUB_ENV
               fi
           shell: bash
 
