@@ -11,16 +11,16 @@ jobs:
         steps:
             - uses: actions/checkout@v3
 
-            - name: Test Failure
-              run: exit 1
+            - name: Test Success
+              run: echo "hello world"
 
             - name: If Actions Failure
               if: ${{failure()}}
-              run: echo "ACTIONS_STATUS=⛔Failure" >> $GITHUB_ENV
+              run: echo "ACTIONS_STATUS=⛔ Failure" >> $GITHUB_ENV
 
             - name: If Actions Success
               if: ${{success()}}
-              run: echo "ACTIONS_STATUS=✅Success" >> $GITHUB_ENV
+              run: echo "ACTIONS_STATUS=✅ Success" >> $GITHUB_ENV
 
             - name: Send Slack Message
               if: ${{always()}}
